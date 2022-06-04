@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Etch-a-Sketch</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+<body>
+  <button class="boton">grid</button>
+  <div id="container"></div>
+</body>
+<script>
+  for (let i=1;i<257;i++){
+  const container = document.querySelector('#container');
+  const divs = document.createElement('div');
+  container.appendChild(divs);
+  divs.classList.add('grid');
+  console.log('new div');
+  }
+  const btn = document.querySelector('.boton');
+  btn.addEventListener('click',deletegrid);
+  btn.addEventListener('click',size);
+  function deletegrid(){
+  const container = document.getElementById('container');
+    for(let i=1;i<256;i++){
+      container.remove();
+    }
+  const newcontainer= document.createElement('div');
+  newcontainer.setAttribute('id','container');
+  const padre= document.querySelector('body');
+  padre.appendChild(newcontainer);
+  }
+  function size(){
+    console.log('hey');
+    let anchotmo = Number(prompt('ancho del grid',''));
+  let alturatmo = Number(prompt('altura del grid','')); 
+    let tamaño=anchotmo*alturatmo
+    console.log(tamaño)
+    if(tamaño<10000){
+      for (let i=0;i<tamaño;i++){
+  const container =document.getElementById('container');
+  const divs = document.createElement('div');
+  container.appendChild(divs);
+  divs.classList.add('grid');
+    }
+ }else if(tamaño<0){
+    return prompt('ingrese un numero valido')} else return prompt('ingrese un numero valido')
+  }
+</script>
+</html>
