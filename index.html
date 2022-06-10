@@ -6,9 +6,17 @@
         <link rel="stylesheet" href="style.css">
     </head>
 <body>
-  <button class="boton">grid</button>
-  <div id="container"></div>
-</body>
+  <div class="logodiv">
+    <img class="logo" src="http://thepoint.com.mx/wp-content/uploads/2021/07/Pizarron-Ma%CC%81gico-2.png" alt="logo etch a sketch">
+  </div>
+  <div class="content">
+    <button class="boton">size</button>  
+    <div id="container"></div>
+  </div>
+  <div class="footer">
+    <div>Walkeruru</div>
+  </div>
+  </body>
 <script>
   // creates the first grid
   for (let i=1;i<257;i++){
@@ -37,7 +45,7 @@ cambiarColor.addEventListener('mousemove',()=>{
     //crea un nuevo container
   const newcontainer= document.createElement('div');
   newcontainer.setAttribute('id','container');
-  const padre= document.querySelector('body');
+  const padre= document.querySelector('.content');
   padre.appendChild(newcontainer);
   }
   function size(){
