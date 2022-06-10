@@ -1,9 +1,15 @@
+:root{
+    --ancho: 16;
+    --largo:16;
+    --color:white ;
+}
+body{
+    background-color: #77dd77 ;
+}
 .grid{
-    width: 100px;
-    height: 100px;
-    flex-basis: auto;
     transition: opacity 2s ease 0.4s, 0.8s ease;
     transform: scale(1);
+    background-color:white;
 }
 .grid:hover{
     background-color: rgb(36, 30, 30);
@@ -24,8 +30,12 @@
     justify-content: center;
 }
 #container{
-    height: 1600px ;
-    width: 1600px;
-    display: inline-flex;
-    flex-wrap:wrap;
+    width: 500px;
+    height: 500px;
+    display:inline-grid;
+    grid-template-columns: repeat(var(--ancho),1fr);
+    grid-template-rows: repeat(var(--largo),1fr);
+    border: 5px;
+    border-style: solid;
+    border-color: yellow;
 }
