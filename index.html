@@ -10,11 +10,14 @@
     <img class="logo" src="http://thepoint.com.mx/wp-content/uploads/2021/07/Pizarron-Ma%CC%81gico-2.png" alt="logo etch a sketch">
   </div>
   <div class="content">
+    <div class="botones">
     <button class="boton">size</button>  
+    <button class="rgb">rgb</button></div>
     <div id="container"></div>
   </div>
   <div class="footer">
-    <div>Walkeruru</div>
+    <a href="https://github.com/Walkeruru">Walkeruru
+    <img id="git" src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="github logo"></a>
   </div>
   </body>
 <script>
@@ -27,7 +30,7 @@
   }
   for (let i=0;i<256;i++){
 let cambiarColor = document.getElementsByClassName('grid')[i]
-cambiarColor.addEventListener('mousemove',()=>{
+cambiarColor.addEventListener('mouseover',()=>{
   cambiarColor.setAttribute('style', 'background: black;');
 });
 }
@@ -37,6 +40,41 @@ cambiarColor.addEventListener('mousemove',()=>{
   const btn = document.querySelector('.boton');
   btn.addEventListener('click',deletegrid);
   btn.addEventListener('click',size);
+  const rgbboton = document.querySelector(".rgb");
+  rgbboton.addEventListener("click",deletegrid);
+  rgbboton.addEventListener("click",()=>{
+    let anchotmo = Number(prompt('ancho del grid',''));
+  let alturatmo = Number(prompt('altura del grid','')); 
+    let tamaño=anchotmo*alturatmo
+    if(tamaño<10000){
+      for (let i=0;i<tamaño;i++){
+  const container =document.getElementById('container');
+  const divs = document.createElement('div');
+  container.appendChild(divs);
+  divs.classList.add('grid');
+    }
+    //random rgb
+    function getRandomRgb() {
+  let num = Math.round(0xffffff * Math.random());
+  let r = num >> 16;
+  let g = num >> 8 & 255;
+  let b = num & 255;
+  return 'rgb(' + r + ', ' + g + ', ' + b + ')';
+}
+    for (let i=0;i<tamaño;i++){
+let rgbcolor=getRandomRgb();
+let cambiarColor = document.getElementsByClassName('grid')[i]
+cambiarColor.addEventListener('mouseover',()=>{
+  cambiarColor.setAttribute('style',`background:${rgbcolor}`);
+});
+}
+    //variable css para utilizar el grid
+  style.setProperty('--ancho',anchotmo);
+  style.setProperty('--largo',alturatmo);
+ }else if(tamaño<0){
+    return prompt('ingrese un numero valido')} else return prompt('ingrese un numero valido')
+  })
+
   function deletegrid(){
   const container = document.getElementById('container');
     for(let i=1;i<256;i++){
@@ -61,7 +99,7 @@ cambiarColor.addEventListener('mousemove',()=>{
     }
     for (let i=0;i<tamaño;i++){
 let cambiarColor = document.getElementsByClassName('grid')[i]
-cambiarColor.addEventListener('mousemove',()=>{
+cambiarColor.addEventListener('mouseover',()=>{
   cambiarColor.setAttribute('style', 'background: black;');
 });
 }
